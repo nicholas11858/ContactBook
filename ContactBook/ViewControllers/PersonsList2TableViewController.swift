@@ -27,21 +27,18 @@ class PersonsList2TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        var content = cell.defaultContentConfiguration()
         let user = person[indexPath.section]
         
         switch indexPath.row {
         case 0:
-            content.text = user.phone
-            content.image = UIImage(systemName: "phone")
+            cell.textLabel?.text = user.phone
+            cell.imageView?.image = UIImage(systemName: "phone")
         case 1:
-            content.text = user.email
-            content.image = UIImage(systemName: "tray")
+            cell.textLabel?.text = user.email
+            cell.imageView?.image = UIImage(systemName: "tray")
         default:
             break
         }
-        
-        cell.contentConfiguration = content
         
         return cell
     }
